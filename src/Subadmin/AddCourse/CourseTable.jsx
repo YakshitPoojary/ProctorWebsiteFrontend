@@ -9,12 +9,12 @@ import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import TextField from '@mui/material/TextField';
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import axios from 'axios';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button.jsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+const axios = require('axios');
 
 const style = {
   position: 'absolute',

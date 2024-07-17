@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import '../SubAdmin.css';
 import Button from "../../components/Button/Button.jsx";
 import CourseAllotmentTable from './CourseAllotmentTable.jsx';
-import axios from 'axios';
 import { useParams } from 'react-router';
+const axios = require('axios');
 
 const CourseAllotment = () => {
   const [selectedFile, setSelectedFile] = useState(null);

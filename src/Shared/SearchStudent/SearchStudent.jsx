@@ -9,9 +9,9 @@ import GradeIcon from '@mui/icons-material/Grade';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../Admin/Admin.css';
+const axios = require('axios');
 
 const style = {
   position: 'absolute',

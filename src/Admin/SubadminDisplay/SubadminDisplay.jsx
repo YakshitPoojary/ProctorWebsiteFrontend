@@ -8,8 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+const axios = require('axios');
 
 let idCounter = 1
 const SubadminDisplay = () => {

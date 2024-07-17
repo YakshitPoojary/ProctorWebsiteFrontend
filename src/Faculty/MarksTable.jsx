@@ -4,10 +4,10 @@ import { DataGrid } from '@mui/x-data-grid';
 import '../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import Button from '@mui/material/Button';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+const axios = require('axios');
 
 let idCounter = 1;
 

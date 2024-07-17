@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../SubAdmin.css';
 import Button from "../../components/Button/Button.jsx";
 import StaffTable from './StaffTable.jsx';
-import axios from 'axios';
+const axios = require('axios');
 
 const AddStaff = () => {
   const [selectedFile, setSelectedFile] = useState(null);

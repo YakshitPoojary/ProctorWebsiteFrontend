@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+const axios = require('axios');
 
 let idCounter = 1;
 const FacultyCourseSelectTable = ({ branch }) => {

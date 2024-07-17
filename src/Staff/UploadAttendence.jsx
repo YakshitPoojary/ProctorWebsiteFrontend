@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Button from '../components/Button/Button';
 import './Staff.css';
 import AttendanceTable from './AttendanceTable';
 import { useParams } from 'react-router';
+const axios = require('axios');
 
 const UploadAttendance = () => {
   const [selectedFile, setSelectedFile] = useState(null);

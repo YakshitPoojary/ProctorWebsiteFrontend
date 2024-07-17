@@ -7,7 +7,7 @@ import Edit from '@mui/icons-material/Edit';
 // import Delete from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+const axios = require('axios');
 
 let idCounter = 1;
 const Termtable = () => {

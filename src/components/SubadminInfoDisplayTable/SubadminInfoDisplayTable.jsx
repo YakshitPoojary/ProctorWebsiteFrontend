@@ -5,7 +5,7 @@ import './SubadminInfoDisplayTable.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 // import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+const axios = require('axios');
 
 let idCounter = 1
 const DataGridComponent = () => {

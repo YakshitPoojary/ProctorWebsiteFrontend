@@ -10,12 +10,12 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import Button from '@mui/material/Button';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+const axios = require('axios');
 
 const style = {
   position: 'absolute',

@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 // import { useState, useEffect } from 'react';
-// import axios from 'axios';
+// const axios = require('axios');
 
 function createData(sr_no, title, description, certificate, hours) {
     return {

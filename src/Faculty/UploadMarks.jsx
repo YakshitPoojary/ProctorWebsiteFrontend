@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import axios from 'axios';
 import Button from '../components/Button/Button';
 import './Faculty.css'
 import FacultyUploadMarksTable from './MarksTable';
 import { useParams } from 'react-router';
+const axios = require('axios');
 
 
 const UploadMarks = () => {

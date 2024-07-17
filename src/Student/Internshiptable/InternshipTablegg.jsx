@@ -3,7 +3,6 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import jsPDF from 'jspdf';
@@ -11,6 +10,7 @@ import 'jspdf-autotable';
 import soms from '../../components/assets/soms_logo.jpeg';
 import { useParams } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
+const axios = require('axios');
 
 const style = {
   position: 'absolute',

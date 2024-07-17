@@ -5,11 +5,11 @@ import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button.jsx';
+const axios = require('axios');
 
 const style = {
   position: 'absolute',

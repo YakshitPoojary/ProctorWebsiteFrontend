@@ -3,7 +3,6 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import Visibility from '@mui/icons-material/Visibility';
@@ -11,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+const axios = require('axios');
 
 const style = {
   position: 'absolute',

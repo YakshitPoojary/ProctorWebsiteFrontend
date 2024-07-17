@@ -12,9 +12,9 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button.jsx';
-import axios from 'axios';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+const axios = require('axios');
 
 const style = {
   position: 'absolute',

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import CustomHeader from './CustomHeader';
 import Button from '@mui/material/Button';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+const axios = require('axios');
 
 const AttendanceTable = ({ tutorial }) => {
   const { year, session, code } = useParams();
