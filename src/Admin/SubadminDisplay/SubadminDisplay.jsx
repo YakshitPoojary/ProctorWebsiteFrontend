@@ -75,7 +75,7 @@ const SubadminDisplay = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, [branch]);
 
   const handleEdit = (id) => {
     console.log('Edit clicked for ID:', id);

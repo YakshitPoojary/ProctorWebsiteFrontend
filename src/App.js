@@ -1,6 +1,6 @@
 import './App.css';
 import Layout from './Layout';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthHook } from './components/Login/AuthHook';
 
 function App() {

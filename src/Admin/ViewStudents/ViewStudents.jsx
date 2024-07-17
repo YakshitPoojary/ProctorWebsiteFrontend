@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
@@ -76,7 +76,7 @@ const ViewStudents = ({ current_year }) => {
     };
 
     fetchUserData();
-  }, [year, session, current_year]);
+  }, [year, session, current_year, storedUserInfo.branch]);
 
   const handleEdit = (id) => {
     const row = rows.find((row) => row.id === id);
@@ -329,7 +329,7 @@ const ViewStudents = ({ current_year }) => {
         ),
       },
     ],
-    [editRowId, editRowData]
+    [editRowId, editRowData, handleEdit, handleSave]
   );
 
   return (

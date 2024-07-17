@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar, GridToolbarFilterButton } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import '../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -44,17 +44,19 @@ const MarksTable = () => {
     };
   }
 
-  const fetchAttendanceData = async (roll_number) => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}attendance/student/${courseCode}/${roll_number}?format=json`);
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching attendance data: ', error);
-      return { th_pr: "-", tut: "-" };
-    }
-  };
-
+  
   useEffect(() => {
+
+    const fetchAttendanceData = async (roll_number) => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}attendance/student/${courseCode}/${roll_number}?format=json`);
+        return response.data;
+      } catch (error) {
+        console.error('Error fetching attendance data: ', error);
+        return { th_pr: "-", tut: "-" };
+      }
+    };
+    
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}marks/${year}/${session}/${courseCode}?format=json`);

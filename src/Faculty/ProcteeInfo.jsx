@@ -1,9 +1,8 @@
 import '../components/ProcteeTable/ProcteeTable.css'
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState, useEffect } from 'react';
@@ -71,23 +70,7 @@ const ProcteeInfo = () => {
     };
 
     fetchUserData();
-  }, [year, session]);
-
-  const handleDelete = async (faculty_abbreviation) => {
-    try {
-      await axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}faculty/${faculty_abbreviation}/`);
-      
-      setRows((prevRows) => prevRows.filter((row) => row.faculty_abbreviation !== faculty_abbreviation));
-      
-      console.log('Faculty deleted successfully.');
-    } catch (error) {
-      console.error('Error deleting Faculty:', error);
-    }
-  };
-  
-  const handleEdit = (id) => {
-    console.log('Edit clicked for ID:', id);
-  };
+  }, [year, session, storedUserInfo.abbr]);
 
   const columns = React.useMemo(
     () => [
@@ -112,8 +95,7 @@ const ProcteeInfo = () => {
           </div>
         ),
       },
-    ],
-    []
+    ],[handleOpenSummary]
   );
 
   return (
