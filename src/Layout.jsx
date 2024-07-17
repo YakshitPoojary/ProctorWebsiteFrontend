@@ -42,7 +42,7 @@ import StaffTermTable from "./Staff/StaffTermTable";
 //Proctor
 
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import SubadminDisplay from "./Admin/SubadminDisplay/SubadminDisplay";
 import ProcteeInfo from "./Faculty/ProcteeInfo";
 import StaffCourseSelectTable from "./Staff/StaffCourseTable";
