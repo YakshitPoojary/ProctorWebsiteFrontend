@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import TextField from '@mui/material/TextField';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
@@ -79,6 +79,7 @@ const StaffTable = () => {
     setDeleteParams(params);
     setOpen(true);
   };
+  
   const handleClose = () => setOpen(false);
 
   const validatePassword = async (password) => {
@@ -101,7 +102,7 @@ const StaffTable = () => {
     }
   };
 
-  function createData(staff_name, staff_abbreviation, staff_email, dept, experience, post, mobile_number) {
+  const createData = (staff_name, staff_abbreviation, staff_email, dept, experience, post, mobile_number) => {
     const id = idCounter++;
     return {
       id,
@@ -113,7 +114,7 @@ const StaffTable = () => {
       post,
       mobile_number,
     };
-  }
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -133,7 +134,7 @@ const StaffTable = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, [storedUserInfo.branch]);
 
   const handleDelete = async (abbreviation) => {
     try {
@@ -145,13 +146,13 @@ const StaffTable = () => {
     }
   };
 
-  const handleEdit = (id) => {
+  const handleEdit = useCallback((id) => {
     const row = rows.find((row) => row.id === id);
     setEditRowData({ ...row });
     setEditRowId(id);
-  };
+  }, [rows]);
 
-  const handleSave = async (id) => {
+  const handleSave = useCallback(async (id) => {
     try {
       const formData = new FormData();
       formData.append('staff_name', editRowData.staff_name);
@@ -177,7 +178,7 @@ const StaffTable = () => {
       setEditRowId(null);
       setEditRowData(null);
     }
-  };
+  }, [editRowData]);
 
   const handleCancel = () => {
     setEditRowId(null);
@@ -359,7 +360,7 @@ const StaffTable = () => {
         },
       },
     ],
-    [editRowId, editRowData]
+    [editRowId, editRowData, handleSave, handleEdit]
   );
 
   return (

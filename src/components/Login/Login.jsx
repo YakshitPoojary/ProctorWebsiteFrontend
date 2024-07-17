@@ -32,7 +32,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [otpSent, setOtpSent] = useState(false);
-  const [otpVerified, setOtpVerified] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false); // <-- State declaration
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [openPasswordModal, setOpenPasswordModal] = useState(false);
@@ -84,7 +84,7 @@ const Login = () => {
     try {
       await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}verify/otp/`, { email, otp });
       setMessage('OTP verified. You can now reset your password.');
-      setOtpVerified(true);
+      setOtpVerified(true); // <-- Setting state here
       setOpenPasswordModal(true);
       // Commented out setOpen(false) to keep OTP modal open until reset password completes
       // setOpen(false);

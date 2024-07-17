@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -87,7 +86,7 @@ const CourseAllotmentTable = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, [session, storedUserInfo.branch, year]);
 
   const handleDelete = async (course_code,faculty_abbreviation) => {
     try {

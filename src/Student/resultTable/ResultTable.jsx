@@ -1,7 +1,7 @@
 import "./ResultTable.css";
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import { useEffect } from "react";
 import axios from "axios";
@@ -89,7 +89,7 @@ const ResultTable = ({ year, session }) => {
       };
       fetchUserData();
     }
-  }, [year, session, roll_number]);
+  }, [year, session, roll_number, storedUserInfo.rollNumber]);
 
   return (
     <Box sx={{ height: 'auto', display: 'flex',maxWidth:'1400px',flexDirection: 'column'}}>

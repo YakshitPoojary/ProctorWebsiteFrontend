@@ -3,9 +3,7 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import IconButton from '@mui/material/IconButton';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import Edit from '@mui/icons-material/Edit';
-import Delete from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -79,15 +77,15 @@ const Termtable = () => {
     fetchUserData();
   }, []);
 
-  const handleDelete = async (year, session) => {
-    try {
-      await axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}academicyear/${year}/${session}/delete/`);
-      setRows((prevRows) => prevRows.filter((row) => !(row.year === year && row.session === session)));
-      console.log('Term deleted successfully.');
-    } catch (error) {
-      console.error('Error deleting term:', error);
-    }
-  };
+  // const handleDelete = async (year, session) => {
+  //   try {
+  //     await axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}academicyear/${year}/${session}/delete/`);
+  //     setRows((prevRows) => prevRows.filter((row) => !(row.year === year && row.session === session)));
+  //     console.log('Term deleted successfully.');
+  //   } catch (error) {
+  //     console.error('Error deleting term:', error);
+  //   }
+  // };
 
   return (
     <Box sx={{ height: 'auto', margin: '0 4vw', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

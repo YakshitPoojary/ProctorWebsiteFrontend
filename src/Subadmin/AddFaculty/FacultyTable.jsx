@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import TextField from '@mui/material/TextField';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button.jsx';
@@ -42,6 +42,7 @@ const FacultyTable = () => {
     setDeleteParams(params);
     setOpen(true);
   };
+
   const handleClose = () => setOpen(false);
 
   const validatePassword = async (password) => {
@@ -64,7 +65,7 @@ const FacultyTable = () => {
     }
   };
 
-  function createData(faculty_name, faculty_abbreviation, faculty_email, dept, employee_code, mobile_number, post, experience) {
+  const createData = (faculty_name, faculty_abbreviation, faculty_email, dept, employee_code, mobile_number, post, experience) => {
     const id = idCounter++;
     return {
       id,
@@ -77,7 +78,7 @@ const FacultyTable = () => {
       post,
       experience,
     };
-  }
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -95,7 +96,7 @@ const FacultyTable = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, [storedUserInfo.branch]);
 
   const handleDelete = async (faculty_abbreviation) => {
     try {
@@ -107,13 +108,13 @@ const FacultyTable = () => {
     }
   };
 
-  const handleEdit = (id) => {
+  const handleEdit = useCallback((id) => {
     const row = rows.find((row) => row.id === id);
     setEditRowData({ ...row });
     setEditRowId(id);
-  };
+  }, [rows]);
 
-  const handleSave = async (id) => {
+  const handleSave = useCallback(async (id) => {
     try {
       const formData = new FormData();
       formData.append('faculty_abbreviation', editRowData.faculty_abbreviation);
@@ -138,7 +139,7 @@ const FacultyTable = () => {
       setEditRowId(null);
       setEditRowData(null);
     }
-  };
+  }, [editRowData]);
 
   const handleCancel = () => {
     setEditRowId(null);
@@ -150,15 +151,11 @@ const FacultyTable = () => {
     setEditRowData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const stopPropagation = (e) => {
-    e.stopPropagation();
-  };
-
   useEffect(() => {
     setEditRowId(editRowId);
   }, [editRowData, editRowId]);
 
-  const columns = React.useMemo(
+  const columns = useMemo(
     () => [
       {
         field: 'faculty_abbreviation',
@@ -306,7 +303,7 @@ const FacultyTable = () => {
         ),
       },
     ],
-    [editRowId, editRowData]
+    [editRowId, editRowData, handleSave, handleEdit]
   );
 
   const exportToPDF = () => {
@@ -344,6 +341,10 @@ const FacultyTable = () => {
     });
 
     doc.save("faculty.pdf");
+  };
+
+  const stopPropagation = (e) => {
+    e.stopPropagation();
   };
 
   return (
