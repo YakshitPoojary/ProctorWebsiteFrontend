@@ -1,7 +1,7 @@
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
@@ -52,7 +52,7 @@ const AchievementsList = () => {
     };
 
     fetchUserAchievement();
-  }, []);
+  }, [storedUserInfo.abbr]);
 
   function createData(id, roll_number, activity_type, activity_members, group_members, start_date, end_date, title, description, upload_file) {
     return {

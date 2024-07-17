@@ -3,7 +3,7 @@ import axios from 'axios';
 import Button from '../components/Button/Button';
 import './Staff.css';
 import AttendanceTable from './AttendanceTable';
-import { useParams, useLocation } from 'react-router';
+import { useParams } from 'react-router';
 
 const UploadAttendance = () => {
   const [selectedFile, setSelectedFile] = useState(null);

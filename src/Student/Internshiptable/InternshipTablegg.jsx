@@ -157,7 +157,7 @@ const InternshipTable = () => {
           </div>
         ),
       },
-    ], [totalHours, rows]
+    ], []
   );
 
   return (

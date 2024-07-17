@@ -39,9 +39,9 @@ const ProcteeInfo = () => {
   };
 
   const navigate = useNavigate();
-  const handleOpenSummary = (student) => {
+  const handleOpenSummary = React.useCallback((student) => {
     navigate(`/student/marks/${student.roll_number}`);
-  };
+  }, [navigate]);
 
   const handleClose = () => setOpen(false);
 

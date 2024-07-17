@@ -63,7 +63,7 @@ const FacultyCourseSelectTable = ({ branch }) => {
     };
 
     fetchUserData();
-  }, [branch]);
+  }, [branch, session, storedUserInfo.abbr, year]);
 
   const handleEdit = (id) => {
     console.log('Edit clicked for ID:', id);

@@ -61,8 +61,10 @@ const StudentAchievements = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setMessage({ success: "Successfully created new Student Achievement." });
-      window.location.href = `/student/achievements/${storedUserInfo.rollNumber}`;
-    } catch {
+      setTimeout(() => {
+        window.location.href = `/student/achievements/${storedUserInfo.rollNumber}`;
+      }, 2000);
+    } catch (error) {
       setMessage({ error: "Error creating new Student Achievement. Please try again." });
     } finally {
       setIsLoading(false);
@@ -94,6 +96,8 @@ const StudentAchievements = () => {
     <div className="student_achievement_wrapper">
       <div className="stuachv_container">
         <h2>New Achievements</h2>
+        {message.success && <div className="success-message">{message.success}</div>}
+        {message.error && <div className="error-message">{message.error}</div>}
         <form onSubmit={handleSubmit} encType="multipart/form-data" method="POST">
           <div className="form_group_inline">
             <div className="form_group">

@@ -30,7 +30,7 @@ const StaffCourseSelectTable = ({ branch }) => {
     };
 
     fetchUserData();
-  }, [branch]);
+  }, [branch, session, storedUserInfo.abbr, year]);
 
   const columns = React.useMemo(
     () => [

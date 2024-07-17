@@ -43,13 +43,13 @@ const ViewStudents = () => {
     setOpen(true);
   };
 
-  const handleOpenSummary = (student) => {
+  const handleOpenSummary = React.useCallback((student) => {
     navigate(`/student/marks/${student.roll_number}`);
-  };
+  }, [navigate]);
 
-  const handleOpenAchievements = (student) => {
+  const handleOpenAchievements = React.useCallback((student) => {
     navigate(`/student/achievements/${student.roll_number}`);
-  };
+  },[navigate]);
 
   const handleClose = () => setOpen(false);
 
@@ -143,8 +143,7 @@ const ViewStudents = () => {
           </div>
         ),
       },
-    ],
-    []
+    ],[handleOpenAchievements, handleOpenSummary]
   );
 
   return (

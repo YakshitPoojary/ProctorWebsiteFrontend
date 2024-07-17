@@ -1,7 +1,6 @@
 import "./Student.css";
 import { useEffect, useState } from 'react';
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import ResultTable from "./resultTable/ResultTable"; 
 import axios from "axios";
 import { useParams } from 'react-router-dom';
@@ -40,7 +39,7 @@ const StudentSummmary = () => {
         setYear(selectedYear);
         setSession(selectedSession);
         console.log(selectedSem, year, session);
-    }, [selectedSem, year, session,roll_number]);
+    }, [selectedSem, year, session, roll_number, storedUserInfo.rollNumber]);
 
     return (
         <div className="wrapper">

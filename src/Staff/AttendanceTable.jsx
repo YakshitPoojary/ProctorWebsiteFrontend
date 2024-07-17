@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Box from '@mui/material/Box';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import CustomHeader from './CustomHeader';
 import Button from '@mui/material/Button';
 import jsPDF from 'jspdf';
@@ -12,8 +12,7 @@ const AttendanceTable = ({ tutorial }) => {
   const { year, session, code } = useParams();
   const [rows, setRows] = useState([]);
 
-  console.log(tutorial);
-  const monthShortForms = {
+  const monthShortForms = useMemo(() => ({
     july: 'Jul',
     august: 'Aug',
     september: 'Sep',
@@ -26,23 +25,9 @@ const AttendanceTable = ({ tutorial }) => {
     apr: 'Apr',
     may: 'May',
     jun: 'Jun',
-  };
+  }), []);
 
-  useEffect(() => {
-    const fetchAttendanceData = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}attendance/${code}/${year}/${session}/list/`);
-        const formattedRows = formatAttendanceData(response.data);
-        setRows(formattedRows);
-      } catch (error) {
-        console.error('Error fetching attendance data: ', error);
-      }
-    };
-
-    fetchAttendanceData();
-  }, [code, year, session]);
-
-  const formatAttendanceData = (data) => {
+  const formatAttendanceData = useCallback((data) => {
     const mergedData = {};
 
     data.forEach((entry, index) => {
@@ -64,7 +49,21 @@ const AttendanceTable = ({ tutorial }) => {
     return Object.values(mergedData).map(({ id, student_name, roll_number, attendance }) =>
       createData(id, student_name, roll_number, attendance)
     );
-  };
+  }, []);
+
+  useEffect(() => {
+    const fetchAttendanceData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}attendance/${code}/${year}/${session}/list/`);
+        const formattedRows = formatAttendanceData(response.data);
+        setRows(formattedRows);
+      } catch (error) {
+        console.error('Error fetching attendance data: ', error);
+      }
+    };
+
+    fetchAttendanceData();
+  }, [code, year, session, formatAttendanceData]);
 
   const createData = (id, student_name, roll_number, attendance) => {
     return {
@@ -75,7 +74,7 @@ const AttendanceTable = ({ tutorial }) => {
     };
   };
 
-  const generateColumns = (months) => {
+  const generateColumns = useCallback((months) => {
     const columns = months.flatMap((month) => {
       let baseColumns = [
         {
@@ -121,14 +120,14 @@ const AttendanceTable = ({ tutorial }) => {
     ];
 
     return commonColumns.concat(columns);
-  };
+  }, [monthShortForms, tutorial]);
 
-  const columns = React.useMemo(() => {
+  const columns = useMemo(() => {
     const oddMonths = ['july', 'august', 'september', 'october', 'november', 'december'];
     const evenMonths = ['jan', 'feb', 'mar', 'apr', 'may', 'jun'];
     const months = session === 'ODD' ? oddMonths : evenMonths;
     return generateColumns(months);
-  }, [session, tutorial]);
+  }, [generateColumns, session]);
 
   const exportToPDF = () => {
     const doc = new jsPDF();

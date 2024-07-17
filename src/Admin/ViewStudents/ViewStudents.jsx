@@ -76,15 +76,15 @@ const ViewStudents = ({ current_year }) => {
     };
 
     fetchUserData();
-  }, [year, session, current_year, storedUserInfo.branch]);
+  }, [year, session, current_year, storedUserInfo]);
 
-  const handleEdit = (id) => {
+  const handleEdit = React.useCallback((id) => {
     const row = rows.find((row) => row.id === id);
     setEditRowData({ ...row });
     setEditRowId(id);
-  };
+  }, [rows]);
 
-  const handleSave = async (id) => {
+  const handleSave = React.useCallback(async (id) => {
     try {
       const formData = {
         student_name: editRowData.student_name,
@@ -117,7 +117,7 @@ const ViewStudents = ({ current_year }) => {
       setEditRowId(null);
       setEditRowData(null);
     }
-  };
+  }, [editRowData, year, session]);
 
   const handleCancel = () => {
     setEditRowId(null);
@@ -329,7 +329,7 @@ const ViewStudents = ({ current_year }) => {
         ),
       },
     ],
-    [editRowId, editRowData, handleEdit, handleSave]
+    [editRowId, editRowData,handleEdit,handleSave]
   );
 
   return (
