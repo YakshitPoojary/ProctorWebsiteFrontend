@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import { useEffect } from "react";
-import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router";
+const axios = require('axios');;
 
 let idCounter = 1;
 const ResultTable = ({ year, session }) => {

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Student.css";
 import uploadicon from "../components/assets/uploadicon.png";
-import axios from "axios";
 import DatePicker from "react-datepicker";
+const axios = require('axios');;
 
 const UploadInternship = () => {
   const [company, setCompany] = useState("");

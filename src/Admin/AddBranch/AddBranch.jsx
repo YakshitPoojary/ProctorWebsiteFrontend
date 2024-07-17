@@ -2,10 +2,10 @@ import "../Admin.css";
 import Button from "../../components/Button/Button.jsx";
 import { useState } from 'react';
 import DataGridComponent from "../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.jsx";
-import axios from "axios";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+const axios = require('axios');;
 
 const style = {
   position: 'absolute',

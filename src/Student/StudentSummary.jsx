@@ -2,8 +2,8 @@ import "./Student.css";
 import { useEffect, useState } from 'react';
 import React from "react";
 import ResultTable from "./resultTable/ResultTable"; 
-import axios from "axios";
 import { useParams } from 'react-router-dom';
+const axios = require('axios');;
 
 const StudentSummmary = () => {
     const [year, setYear] = useState(null);

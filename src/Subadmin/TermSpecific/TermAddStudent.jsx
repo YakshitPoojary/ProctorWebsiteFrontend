@@ -1,9 +1,9 @@
 import Button from '../../components/Button/Button.jsx'
 import '../SubAdmin.css'
 import {useState} from 'react';
-import axios from "axios";
 import ViewStudents from "../../Admin/ViewStudents/ViewStudents.jsx";
 import { useParams } from 'react-router';
+const axios = require('axios');;
 
 
 const TermAddStudent = () =>{

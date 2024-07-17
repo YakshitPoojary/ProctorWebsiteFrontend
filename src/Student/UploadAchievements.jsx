@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Student.css";
 import uploadicon from "../components/assets/uploadicon.png";
+const axios = require('axios');;
 
 const StudentAchievements = () => {
   const [title, setTitle] = useState("");
