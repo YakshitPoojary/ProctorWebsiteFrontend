@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Poly&family=Poppins:wght@100;200&family=Young+Serif&display=swap');
+
+.outerDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.loginContainer {
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    width: 20%;
+    height: 50%; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.forgotPassword {
+    margin-top: 0.5rem; 
+    text-align: center;
+}
+
+.forgotButton {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer; 
+    padding: 0;
+    font-size: inherit; 
+    text-decoration: underline;
+}
+
+.forgotButton:hover {
+    color: #0056b3;
+}

@@ -1,0 +1,20 @@
+.header-cell {
+    background-color: #bdbcbc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: medium;
+    font-weight: bolder;
+}
+
+.MuiDataGrid-columnHeaderTitleContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+}
+
+.MuiDataGrid-columnHeaderTitle, .css-t89xny-MuiDataGrid-columnHeaderTitle{
+    font-weight: 900;
+}

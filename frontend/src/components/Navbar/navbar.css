@@ -1,0 +1,128 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Young+Serif&display=swap');
+
+.nav-contents{
+    list-style: none;
+    display:inline-flex;
+    align-items: center;
+    background-color: #F4F4F4;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 2%;
+    padding: 20px 0px;
+    position: relative;
+}
+
+.nav-contents li{
+    margin-left: 80px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.nav-contents a{
+    color:black;
+    text-decoration: none;
+}
+
+.nav-contents a:hover{
+    color:#25548B;
+    text-decoration: none;
+}
+
+.nav-right-contents{
+    display:flex;
+    align-items: center;
+    gap:20px;
+    right:30px;
+    position:absolute;
+    height:10px;
+}
+
+.nav-right-contents h3{
+    background: #25548B;
+    text-decoration: none;
+    color:white;
+    padding:10px 20px;
+    border-radius: 3px;
+}
+
+.nav-btn-login{
+    display: flex;
+    align-items: center;
+    /* background: none; */
+    /* background-color: white; */
+    /* border:none; */
+    /* cursor:pointer;
+    gap:10px;
+    font-family:'Inter',sans-serif; 
+    font-size: larger;
+    font-weight: bold;
+    color:black;
+    border: black; */
+/* } */
+
+/* .nav-btn-login img{ */
+    /* size: bigger; */
+/* } */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Young+Serif&display=swap');
+
+.nav-contents {
+    list-style: none;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    background-color: #F4F4F4;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 2%;
+    padding: 20px 0px;
+}
+
+.nav-contents li {
+    margin-left: 80px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.nav-contents a {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-contents a:hover {
+    color: #25548B;
+    text-decoration: none;
+}
+
+.nav-right-contents {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-self: end;
+}
+
+.nav-right-contents h3 {
+    background: #25548B;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+.nav-btn-login {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+    border: black;
+}
+
+.nav-btn-login img {
+    size: bigger;
+}

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Outfit&display=swap');
+
+.body3-div {
+    height: auto;
+    background-color: white;
+    position: relative;
+}
+
+.red-rectangle {
+    background-color: #BD210F;
+    height: 90px;
+    width: 100%;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 60px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.result-text-proctor {
+    margin-left: 20px;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    line-height: 90px; 
+}
+
+.semesterDropdown {
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    text-align: center; 
+    border-radius: 10px;
+    position: absolute;
+    top: 50%; 
+    left: 70%; 
+    transform: translate(-50%, -50%); 
+}
+
+.semesterDropdown option {
+    background-color: #beb9b9;
+    color: #000000;
+}
+
+.back-button-proctor {
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center; 
+    border-radius: 10px;
+    position: absolute;
+    top: 50%; 
+    left: 92%; 
+    transform: translate(-50%, -50%); 
+}
+
+.back-button-proctor:hover {
+    background-color: #FFFFFF;
+    color: #BD210F;
+}
+
+.next-button-proctor:hover {
+    background-color: #BD210F;
+    color: #FFFFFF;
+}
+
+.back-icon-proctor {
+    width: 13px;
+    height: 13px;
+    margin-left: 10px;
+    filter: invert(1);
+}
+
+.back-button-proctor:hover .back-icon-proctor {
+    filter: invert(0); 
+}
+

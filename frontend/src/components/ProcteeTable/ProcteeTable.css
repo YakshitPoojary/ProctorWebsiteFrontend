@@ -1,0 +1,14 @@
+.summary_paper{
+    width: 100%; 
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.summary_tableContainer{
+    max-height: 400px;
+}
+
+.studentNameStyle:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

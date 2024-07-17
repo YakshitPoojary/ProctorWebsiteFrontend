@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Numans&family=Rethink+Sans:wght@400;600&display=swap');
+
+.staff_homepage {
+    width: fit-content;
+    height: fit-content;
+    padding: 15px 50px 5px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    position: relative;
+    left: 15%;
+}
+
+.staff_homepage_title_contents {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile-icon img {
+    width: 180px;
+    height: 180px;
+}
+
+.profile-icon2 img {
+    width: 90px;
+    height: 90px;
+    margin-left: 30px;
+}
+
+.staff_homepage_title_contents h2 {
+    font-family: 'ABeeZee', sans-serif;
+    margin-left: 20px;
+    font-weight: lighter;
+    font-size: 40px;
+}
+
+.staff_homepage_title_contents h3 {
+    font-family: 'ABeeZee', sans-serif;
+    margin-left: 20px;
+    font-weight: lighter;
+    font-size: 30px;
+}
+
+.staff_homepage_buttons {
+    grid-column: 1; 
+    border-top: black solid 2px;
+    padding-top: 25px;
+    display: flex;
+    justify-content: flex-start; 
+    flex-wrap: wrap;
+    gap: 50px;
+    transform: translateY(-40px);
+    transform: translateX(200px);
+}
+
+.homepage_buttons {
+    border: black solid 1px;
+    box-shadow: 7px 7px;
+    background-color: white;
+    color: black;
+    width: 237px;
+    height: 90px;
+    font-size: 28px;
+}
+
+.term_contents {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.staff_homepage_term {
+    border: black solid 1px;
+    box-shadow: 7px 7px;
+    background-color: white;
+    width: 811px;
+    color: black;
+    border-radius: 4px;
+    font-size: 28px;
+    padding: 6px 20px;
+}
+
+/* Upload Attendance */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto; /* Ensure the wrapper allows horizontal scrolling if needed */
+}
+
+.staff_container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    background-color: #d9d9d9;
+    gap: 15px;
+    border-radius: 4px;
+    padding: 20px;
+    width: 100%; /* Ensure the container takes full width */
+    max-width: 100%; /* Prevent the container from expanding beyond the viewport */
+    overflow-x: auto; /* Ensure the container allows horizontal scrolling if needed */
+}
+
+/* Apply similar constraints to other necessary classes if needed */
+
+
+.staff_inner{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:120px;
+    grid-row: 1;
+}
+  
+.staff_header {
+    color: #921212;
+    font-family: "Poly", serif;
+    font-size: 30px;
+    font-weight: 500;
+    grid-column:1;
+}
+
+  
+.staffform_container {
+    grid-row: 2;
+    grid-template-columns:auto auto;
+}
+
+.staff_name{
+    width: 100%;
+    box-sizing: border-box;
+    grid-column: 1;
+}
+
+.staff_attnd_up{
+    grid-column: 2;
+}
+
+.staff_button {
+    text-align: center;
+    grid-row: 3;
+}

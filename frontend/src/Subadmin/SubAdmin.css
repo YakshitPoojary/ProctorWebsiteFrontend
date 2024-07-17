@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Numans&family=Rethink+Sans:wght@400;600&display=swap');
+
+.subadmin_homepage {
+    width: fit-content;
+    height: fit-content;
+    padding: 15px 50px 5px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    position: relative;
+    left: 15%;
+}
+
+.subadmin_homepage_title_contents {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile-icon img {
+    width: 180px;
+    height: 180px;
+}
+
+.profile-icon2 img {
+    width: 90px;
+    height: 90px;
+    margin-left: 30px;
+}
+
+.subadmin_homepage_title_contents h2 {
+    font-family: 'ABeeZee', sans-serif;
+    margin-left: 20px;
+    font-weight: lighter;
+    font-size: 40px;
+}
+
+.subadmin_homepage_title_contents h3 {
+    font-family: 'ABeeZee', sans-serif;
+    margin-left: 20px;
+    font-weight: lighter;
+    font-size: 30px;
+}
+
+.subadmin_homepage_buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row: 2;
+    gap: 20px; 
+    border-top: black solid 2px;
+    padding-top: 25px;
+    justify-content: start;
+    transform: translateY(-10px); 
+    margin-left: 200px;
+    grid-template-rows: auto auto; 
+}
+
+.homepage_buttons {
+    border: black solid 1px;
+    box-shadow: 7px 7px;
+    background-color: white;
+    color: black;
+    width: 180px;
+    height: 80px;
+    font-size: 28px;
+}
+
+#btn-5,
+#btn-6 {
+    grid-row: 2; 
+}
+
+.term_contents {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.subadmin_homepage_term {
+    border: black solid 1px;
+    box-shadow: 7px 7px;
+    background-color: white;
+    width: 811px;
+    color: black;
+    border-radius: 4px;
+    font-size: 28px;
+    padding: 6px 20px;
+}
+
+/* Add Faculty */
+.wrapper {
+    display: grid;
+    grid-template-columns:1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.subadmin_container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    background-color: #d9d9d9;
+    gap:15px;
+    border-radius: 4px;
+    padding: 20px;
+    width: fit-content;
+}
+
+.subadmin_inner{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:120px;
+}
+  
+.subadmin_header {
+    color: #921212;
+    font-family: "Poly", serif;
+    font-size: 30px;
+    font-weight: 500;
+    grid-column:1;
+    grid-row: 1;
+}
+
+  
+.subadminform_container {
+    grid-row: 2;
+}
+
+.subadmin_name{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.subadmin_button {
+    text-align: center;
+    grid-row: 3;
+}
+
+/* Term specific student */
+#current_year{
+    width:30%;
+    font-size: 18px;
+}

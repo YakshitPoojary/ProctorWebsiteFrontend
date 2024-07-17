@@ -1,0 +1,17 @@
+.summary_paper{
+    /* width: 92%;  */
+    /* overflow: 'hidden'; */
+    width: 100%;
+}
+
+.summary_tableContainer{
+    /* min-height: 430px; */
+}
+
+.sticky-table-head {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #c2c4c0;
+    z-index: 1;
+}

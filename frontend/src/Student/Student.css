@@ -1,0 +1,302 @@
+/* Student home Page */
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Numans&family=Rethink+Sans:wght@400;600&display=swap');
+
+.student_homepage {
+    width: fit-content;
+    height: fit-content;
+    padding: 15px 50px 5px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    position: relative;
+    left: 12%;
+}
+
+.student_homepage_title{
+    display:grid;
+    grid-template-rows: auto auto;
+}
+
+.student_homepage_title_contents {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    position: relative;
+    grid-row: 1;
+}
+
+.profile-icon img {
+    width: 180px;
+    height: 180px;
+}
+
+.profile-icon2 img {
+    width: 90px;
+    height: 90px;
+    margin-left: 30px;
+}
+
+.student_homepage_title_contents h2 {
+    font-family: 'ABeeZee', sans-serif;
+    margin-left: 20px;
+    font-weight: lighter;
+    font-size: 40px;
+}
+
+.student_homepage_title h3 {
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: lighter;
+    font-size: 30px;
+    grid-row:2;
+    transform: translateX(200px);
+}
+
+.student_homepage_buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row: 2;
+    gap: 20px; 
+    border-top: black solid 2px;
+    padding-top: 15px;
+    justify-content: start;
+    transform: translateY(-10px); 
+    margin-left: 200px;
+    grid-template-rows: auto auto; 
+}
+
+.homepage_buttons {
+    border: black solid 1px;
+    box-shadow: 7px 7px;
+    background-color: white;
+    color: black;
+    width: 180px;
+    height: 80px;
+    font-size: 28px;
+}
+
+#student_btn_5{
+    grid-row: 2; 
+}
+
+/* .term_contents {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.student_homepage_term {
+    border: black solid 1px;
+    box-shadow: 7px 7px;
+    background-color: white;
+    width: 811px;
+    color: black;
+    border-radius: 4px;
+    font-size: 28px;
+    padding: 6px 20px;
+} */
+
+/* Student Marks */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+.student_container {
+    display: grid;
+    grid-template-columns: minmax(auto, 50%) 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    background-color: #d9d9d9;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.student_header {
+    color: #921212;
+    font-family: "Poly", serif;
+    font-size: 30px;
+    font-weight: 500;
+    grid-column: span 2;
+}
+
+.studentform_container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.student_sem select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Upload achievements and Upload internship forms */
+.student_achievement_wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.stuachv_container {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+.stuachv_container h2 {
+    grid-column: span 2;
+    text-align: center;
+    color: #921212;
+    font-family: "Poly", serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_group_inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25%;
+    grid-column: span 2;
+    transform: translateX(10%);
+}
+
+form label{
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.checkBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkBox input[type="radio"] {
+    margin-right: 10px;
+}
+
+.group_members .group_member {
+    margin-bottom: 10px;
+}
+
+.group_members .add-btn {
+    align-self: flex-start;
+    padding: 5px 10px;
+    background-color: #921212;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.group_members .add-btn:hover {
+    background-color: #921212;
+}
+
+.student_form {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.date_block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5%;
+}
+
+.date_block > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.student_form_start_date, .student_form_end_date{
+    width: 100%;
+}
+
+.stu_uploads {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stuimg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-btn-wrapper input[type="file"] {
+    display: none;
+}
+
+.stu_btn {
+    background-color: #921212;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.stu_btn:hover {
+    background-color: #921212;
+}
+
+.form_group_btn {
+    margin-top: 20px;
+}
+
+.form_group_btn button {
+    padding: 10px 20px;
+    background-color: #921212;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form_group_btn button:hover {
+    background-color: #921212;
+}
+
+@media (max-width: 768px) {
+    .stuachv_container {
+        grid-template-columns: 1fr;
+    }
+
+    .form_group_inline {
+        grid-template-columns: 1fr;
+    }
+
+    .date_block {
+        grid-template-columns: 1fr;
+    }
+
+    .stu_uploads {
+        width: 100%;
+    }
+
+    .stuimg-container img {
+        width: 100%;
+    }
+}
