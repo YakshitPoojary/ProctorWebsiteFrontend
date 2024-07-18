@@ -3,6 +3,7 @@ module.exports = {
       "^.+\\.jsx?$": "babel-jest",
     },
     moduleFileExtensions: ["js", "jsx"],
-    testEnvironment: "node",
+    testEnvironment: "jsdom",
+    transformIgnorePatterns: ["<rootDir>/node_modules/"],
 };
   
