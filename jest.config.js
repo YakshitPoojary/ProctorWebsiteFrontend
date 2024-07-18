@@ -4,6 +4,6 @@ module.exports = {
     },
     moduleFileExtensions: ["js", "jsx"],
     testEnvironment: "jsdom",
-    transformIgnorePatterns: ["<rootDir>/node_modules/"],
-};
+    transformIgnorePatterns: ["<rootDir>/node_modules/(?!(axios)/)"],
+  };
   
