@@ -1,4 +1,8 @@
-export const transform = {
-    '^.+\\.jsx?$': 'babel-jest',
+module.exports = {
+    transform: {
+      "^.+\\.jsx?$": "babel-jest",
+    },
+    moduleFileExtensions: ["js", "jsx"],
+    testEnvironment: "node",
 };
   
