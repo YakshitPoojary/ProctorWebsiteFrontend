@@ -4,7 +4,7 @@ import axios from 'axios';
 const authApi = {
   async login(username, password) {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}api/login/'`, { username, password });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}api/login/`, { username, password });
 
       if (response.data.role) {
         const userInfo = {
@@ -50,7 +50,7 @@ const authApi = {
     try {
       const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
       if (userInfo && userInfo.refreshToken) {
-        await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}api/logout/'`, { refresh_token: userInfo.refreshToken });
+        await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}api/logout/`, { refresh_token: userInfo.refreshToken });
       }
       sessionStorage.removeItem('userInfo');
     } catch (error) {
