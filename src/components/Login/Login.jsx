@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',

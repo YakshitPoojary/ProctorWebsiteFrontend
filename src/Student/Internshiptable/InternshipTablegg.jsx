@@ -10,7 +10,7 @@ import 'jspdf-autotable';
 import soms from '../../components/assets/soms_logo.jpeg';
 import { useParams } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -30,15 +30,12 @@ const InternshipTable = () => {
   const [selectedInternship, setSelectedInternship] = useState({});
   const [studentName, setStudentName] = useState('');
   const [totalHours, setTotalHours] = useState(0);
-  const BASE_URL = "http://127.0.0.1:8000";
   const { rollNumber } = useParams(); // Use useParams to get the roll number from the URL
 
   useEffect(() => {
     const fetchUserInternships = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/studentinternship/list/${rollNumber}/`);
-        console.log(response.data);
-
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}studentinternship/list/${rollNumber}/`);
         const { student_name, internship } = response.data;
         setStudentName(student_name);
 
@@ -68,7 +65,7 @@ const InternshipTable = () => {
 
   const handleDownload = (filePath) => {
     const link = document.createElement('a');
-    link.href = `${BASE_URL}${filePath}`;
+    link.href = `${process.env.REACT_APP_BACKEND_API_URL}${filePath}`;
     link.download = filePath.split('/').pop();
     document.body.appendChild(link);
     link.click();
@@ -162,23 +159,29 @@ const InternshipTable = () => {
 
   return (
     <div>
-      <Box sx={{ height: 'auto', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <button onClick={exportToPDF}>Export to PDF</button>
-        <Typography>
-          Total Hours Required: {Math.max(0, 560 - totalHours)}
-        </Typography>
-        <Typography>
-          Current Hours: {totalHours}
-        </Typography>
-        <Typography>
-          Credits: {(totalHours / 40).toFixed(2)}
-        </Typography>
+      <Box sx={{ height: 'auto', margin: 'auto', maxWidth:'95%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <DataGrid
           rows={rows}
           columns={columns}
           disableColumnFilter={false}
           disableColumnSelector
           disableDensitySelector
+          components={{
+            Toolbar: (props) => (
+              <div>
+                <button onClick={exportToPDF}>Export to PDF</button>
+                <Typography>
+                  Total Hours Required: {Math.max(0, 560 - totalHours)}
+                </Typography>
+                <Typography>
+                  Current Hours: {totalHours}
+                </Typography>
+                <Typography>
+                  Credits: {(totalHours / 40).toFixed(2)}
+                </Typography>
+              </div>
+            ),
+          }}
           sx={{ width: '100%', '& .MuiDataGrid-cell': { justifyContent: 'center' } }}
         />
       </Box>

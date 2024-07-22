@@ -3,7 +3,7 @@ import '../SubAdmin.css'
 import {useState} from 'react';
 import ViewStudents from "../../Admin/ViewStudents/ViewStudents.jsx";
 import { useParams } from 'react-router';
-const axios = require('axios');;
+import axios from 'axios';;
 
 
 const TermAddStudent = () =>{
@@ -55,7 +55,6 @@ const TermAddStudent = () =>{
             formData.append('file', selectedFile);
             formData.append('year', year);
             formData.append('session', session);
-            console.log(formData);
         
             axios.post(`${process.env.REACT_APP_BACKEND_API_URL}student/`, formData, {
                 headers: {

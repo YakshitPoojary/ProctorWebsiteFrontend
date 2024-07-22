@@ -3,7 +3,7 @@ import Button from '../components/Button/Button';
 import './Staff.css';
 import AttendanceTable from './AttendanceTable';
 import { useParams } from 'react-router';
-const axios = require('axios');
+import axios from 'axios';
 
 const UploadAttendance = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -48,9 +48,6 @@ const UploadAttendance = () => {
           'Content-Type': 'multipart/form-data',
         },
       })
-        .then(response => {
-          console.log('CSV file uploaded successfully', response.data);
-        })
         .catch(error => {
           console.error('Error uploading CSV file', error);
         });

@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-const axios = require('axios');
+import axios from 'axios';
 
 let idCounter = 1;
 
@@ -125,7 +125,7 @@ const MarksTable = () => {
   };
 
   return (
-    <Box sx={{ height: 'auto', maxWidth: 1500, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box sx={{ height: 'auto', maxWidth:'95%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <DataGrid
           rows={rows}
           columns={columns}

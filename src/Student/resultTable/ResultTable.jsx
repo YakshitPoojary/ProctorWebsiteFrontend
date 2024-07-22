@@ -6,7 +6,7 @@ import '../../components/SubadminInfoDisplayTable/SubadminInfoDisplayTable.css';
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
-const axios = require('axios');;
+import axios from 'axios';;
 
 let idCounter = 1;
 const ResultTable = ({ year, session }) => {
@@ -65,7 +65,6 @@ const ResultTable = ({ year, session }) => {
 
   useEffect(() => {
     if (year && session) {
-      console.log(year, session);
       const fetchUserData = async () => {
         try {
           let response;
@@ -82,7 +81,6 @@ const ResultTable = ({ year, session }) => {
           }));
 
           setRows(formattedRows);
-          console.log(formattedRows);
         } catch (error) {
           console.error('Error fetching data: ', error);
         }
@@ -92,7 +90,7 @@ const ResultTable = ({ year, session }) => {
   }, [year, session, roll_number, storedUserInfo.rollNumber]);
 
   return (
-    <Box sx={{ height: 'auto', display: 'flex',maxWidth:'1400px',flexDirection: 'column'}}>
+    <Box sx={{ height: 'auto', display: 'flex', maxWidth:'95%',flexDirection: 'column'}}>
       <DataGrid
         rows={rows}
         columns={columns}

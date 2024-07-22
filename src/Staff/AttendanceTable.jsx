@@ -6,7 +6,7 @@ import CustomHeader from './CustomHeader';
 import Button from '@mui/material/Button';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-const axios = require('axios');
+import axios from 'axios';
 
 const AttendanceTable = ({ tutorial }) => {
   const { year, session, code } = useParams();
@@ -155,19 +155,26 @@ const AttendanceTable = ({ tutorial }) => {
   };
 
   return (
-    <Box sx={{ height: 'auto', maxWidth: 1400, display: 'flex', flexDirection: 'column'}}>
-      <Button 
-          onClick={exportToPDF}
-          style={{marginLeft: '10px'}}
-        >
-          Export to PDF
-        </Button>
+    <Box sx={{ height: 'auto', maxWidth:'95%', display: 'flex', flexDirection: 'column'}}>
+      
       <DataGrid
         rows={rows}
         columns={columns}
         disableColumnFilter={false}
         disableColumnSelector={false}
         disableDensitySelector
+        components={{
+          Toolbar: (props) => (
+            <div>
+              <Button 
+                onClick={exportToPDF}
+                style={{marginLeft: '10px'}}
+              >
+                Export to PDF
+              </Button>
+            </div>
+          ),
+        }}
         sx={{ width: '100%', '& .MuiDataGrid-cell': { justifyContent: 'center' } }}
       />
     </Box>

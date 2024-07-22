@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-const axios = require('axios');
+import axios from 'axios';
 
 let idCounter = 1
 const SubadminDisplay = () => {

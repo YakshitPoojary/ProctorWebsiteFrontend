@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-const axios = require('axios');
+import axios from 'axios';
 
 let idCounter = 1;
 const FacultyCourseSelectTable = ({ branch }) => {
@@ -50,7 +50,6 @@ const FacultyCourseSelectTable = ({ branch }) => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}courseallotment/abbr/${storedUserInfo.abbr}/${year}/${session}`);
-        console.log(response)
         const formattedRows = response.data.map((entry) => {
           const { course_code, course_name, year, session, course_abbreviation, faculty_abbreviation, staff_abbreviation } = entry;
           return createData(course_code, course_name, year, session, course_abbreviation, faculty_abbreviation, staff_abbreviation);

@@ -2,7 +2,7 @@ import "../Admin.css";
 import Button from "../../components/Button/Button.jsx";
 import { useState } from 'react';
 import Termtable from "../../components/TermTable/termtable.jsx";
-const axios = require('axios');;
+import axios from 'axios';;
 
 const AddTerm = () => {
     const [termyear, setTermYear] = useState("");

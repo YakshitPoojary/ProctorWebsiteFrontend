@@ -5,7 +5,7 @@ import DataGridComponent from "../../components/SubadminInfoDisplayTable/Subadmi
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-const axios = require('axios');;
+import axios from 'axios';;
 
 const style = {
   position: 'absolute',

@@ -5,7 +5,7 @@ import './SubadminInfoDisplayTable.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 // import { useNavigate } from 'react-router-dom';
-const axios = require('axios');
+import axios from 'axios';
 
 let idCounter = 1
 const DataGridComponent = () => {
@@ -63,7 +63,7 @@ const DataGridComponent = () => {
   // };
 
   return (
-    <Box sx={{ height: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <Box sx={{ height: 'auto', maxWidth: '95%' ,display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <DataGrid
         rows={rows}
         columns={columns}

@@ -11,7 +11,7 @@ import Button from '../components/Button/Button.jsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import soms from '../components/assets/soms_logo.jpeg';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -30,14 +30,12 @@ const AchievementsList = () => {
   const [open, setOpen] = useState(false);
   const [selectedAchievement, setSelectedAchievement] = useState({});
   const [studentName, setStudentName] = useState('');
-  const BASE_URL = "http://127.0.0.1:8000";
   const { rollNumber } = useParams(); // Use useParams to get the roll number from the URL
 
   useEffect(() => {
     const fetchUserAchievement = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/studentachievement/list/${rollNumber}/`);
-        console.log(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}studentachievement/list/${rollNumber}/`);
         
         // Extract student_name from response data
         const { student_name, achievements } = response.data;
@@ -67,7 +65,7 @@ const AchievementsList = () => {
 
   const handleDownload = (filePath) => {
     const link = document.createElement('a');
-    link.href = `${BASE_URL}${filePath}`;
+    link.href = `${process.env.REACT_APP_BACKEND_API_URL}${filePath}`;
     link.download = filePath.split('/').pop();
     document.body.appendChild(link);
     link.click();
@@ -192,19 +190,25 @@ const AchievementsList = () => {
   
   return (
     <div>
-      <Box sx={{ height: 'auto', margin: 'auto', maxWidth:'1450px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Button 
-          onClick={exportToPDF}
-          style={{marginLeft: '10px'}}
-        >
-          Export to PDF
-        </Button>
+      <Box sx={{ height: 'auto', margin: 'auto', marginBottom:'2%', maxWidth:'95%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <DataGrid
           rows={rows}
           columns={columns}
           disableColumnFilter={false}
           disableColumnSelector
           disableDensitySelector
+          components={{
+            Toolbar: (props) => (
+              <div>
+                <Button 
+                  onClick={exportToPDF}
+                  style={{marginLeft: '10px'}}
+                >
+                  Export to PDF
+                </Button>
+              </div>
+            ),
+          }}
           sx={{ width: '100%', '& .MuiDataGrid-cell': { justifyContent: 'center' } }}
         />
       </Box>

@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button.jsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -349,7 +349,7 @@ const FacultyTable = () => {
 
   return (
     <div>
-      <Box sx={{ height: 'auto', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box sx={{ height: 'auto', maxWidth: '95%' , display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <DataGrid
           rows={rows}
           columns={columns}

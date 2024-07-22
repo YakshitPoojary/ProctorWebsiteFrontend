@@ -3,7 +3,7 @@ import Button from '../components/Button/Button';
 import './Faculty.css'
 import FacultyUploadMarksTable from './MarksTable';
 import { useParams } from 'react-router';
-const axios = require('axios');
+import axios from 'axios';
 
 
 const UploadMarks = () => {
@@ -34,9 +34,6 @@ const UploadMarks = () => {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
-        })
-        .then(response => {
-            console.log('CSV file uploaded successfully', response.data);
         })
         .catch(error => {
             console.error('Error uploading CSV file', error);

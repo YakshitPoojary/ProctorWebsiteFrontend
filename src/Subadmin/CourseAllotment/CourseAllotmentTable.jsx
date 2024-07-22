@@ -9,7 +9,7 @@ import { useParams } from 'react-router';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button.jsx';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -126,7 +126,7 @@ const CourseAllotmentTable = () => {
 
   return (
     <div>
-      <Box sx={{ height: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <Box sx={{ height: 'auto', maxWidth:'95%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <DataGrid
           rows={rows}
           columns={columns}

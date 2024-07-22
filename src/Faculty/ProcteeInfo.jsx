@@ -10,7 +10,9 @@ import { useParams } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { useNavigate } from 'react-router-dom';
-const axios = require('axios');
+import GradeIcon from '@mui/icons-material/Grade';
+import WorkIcon from '@mui/icons-material/Work';
+import axios from 'axios';
 
 
 const style = {
@@ -43,6 +45,14 @@ const ProcteeInfo = () => {
     navigate(`/student/marks/${student.roll_number}`);
   }, [navigate]);
 
+  const handleOpenAchievements = React.useCallback((student) => {
+    navigate(`/student/achievements/${student.roll_number}`);
+  },[navigate]);
+
+  const handleOpenInternship = React.useCallback((student) => {
+    navigate(`/student/internship/${student.roll_number}`);
+  },[navigate]);
+
   const handleClose = () => setOpen(false);
 
   function createData(student_name, roll_number, student_contact_no, student_branch, email, parent_email_id, parents_contact_no) {
@@ -56,7 +66,6 @@ const ProcteeInfo = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}student/proctor/${storedUserInfo.abbr}`); 
-        console.log("Response: ", response.data);
 
         const formattedRows = response.data.map((entry) => {
           const { student_name, roll_number, student_contact_no, student_branch, email, parent_email_id, parents_contact_no } = entry;
@@ -92,15 +101,21 @@ const ProcteeInfo = () => {
             <IconButton onClick={() => handleOpenSummary(params.row)}>
               <ArrowDownwardIcon />
             </IconButton>
+            <IconButton onClick={() => handleOpenAchievements(params.row)}>
+              <GradeIcon/>
+            </IconButton>
+            <IconButton onClick={() => handleOpenInternship(params.row)}>
+              <WorkIcon/>
+            </IconButton>
           </div>
         ),
       },
-    ],[handleOpenSummary]
+    ],[handleOpenAchievements, handleOpenInternship, handleOpenSummary]
   );
 
   return (
     <div>
-      <Box sx={{ height: 'auto', margin: 'auto', maxWidth:'1400px',display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <Box sx={{ height: 'auto', margin: 'auto', maxWidth:'95%',display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <DataGrid
           rows={rows}
           columns={columns}

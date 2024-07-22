@@ -5,7 +5,7 @@ import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import { Link } from 'react-router-dom';
-const axios = require('axios');
+import axios from 'axios';
 
 let idCounter = 1;
 
@@ -76,7 +76,7 @@ const StaffCourseSelectTable = ({ branch }) => {
   };
 
   return (
-    <Box sx={{ height: 'auto', maxWidth: 1400, margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box sx={{ height: 'auto', maxWidth:'95%', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <DataGrid
         rows={rows}
         columns={columns}

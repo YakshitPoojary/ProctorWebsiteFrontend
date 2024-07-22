@@ -5,13 +5,14 @@ import '../../components/ProcteeTable/ProcteeTable.css'
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import GradeIcon from '@mui/icons-material/Grade';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../Admin/Admin.css';
-const axios = require('axios');
+import GradeIcon from '@mui/icons-material/Grade';
+import WorkIcon from '@mui/icons-material/Work';
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -51,6 +52,10 @@ const ViewStudents = () => {
     navigate(`/student/achievements/${student.roll_number}`);
   },[navigate]);
 
+  const handleOpenInternship = React.useCallback((student) => {
+    navigate(`/student/internship/${student.roll_number}`);
+  },[navigate]);
+
   const handleClose = () => setOpen(false);
 
   useEffect(() => {
@@ -87,9 +92,6 @@ const ViewStudents = () => {
             current_year: selectedYear !== "All" ? selectedYear : undefined,
           }
         });
-
-        console.log('Response Data:', response.data); // Debugging log
-
         if (response.data.length === 0) {
           setRows([]);
         } else {
@@ -103,7 +105,7 @@ const ViewStudents = () => {
 
       } catch (error) {
         console.error('Error fetching search results: ', error);
-        setRows([]); // Ensure rows are emptied on error
+        setRows([]);
       }
     };
 
@@ -140,10 +142,13 @@ const ViewStudents = () => {
             <IconButton onClick={() => handleOpenAchievements(params.row)}>
               <GradeIcon/>
             </IconButton>
+            <IconButton onClick={() => handleOpenInternship(params.row)}>
+              <WorkIcon/>
+            </IconButton>
           </div>
         ),
       },
-    ],[handleOpenAchievements, handleOpenSummary]
+    ],[handleOpenAchievements, handleOpenSummary, handleOpenInternship]
   );
 
   return (
@@ -164,7 +169,7 @@ const ViewStudents = () => {
           <div>
             <label htmlFor="branch">Branch:</label>
             <select
-              id="branch"
+              id="shared_branch"
               value={branch}
               onChange={(e) => setBranch(e.target.value)}
             >

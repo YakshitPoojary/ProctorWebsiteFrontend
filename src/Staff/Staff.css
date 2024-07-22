@@ -89,7 +89,6 @@
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
-    overflow-x: auto; /* Ensure the wrapper allows horizontal scrolling if needed */
 }
 
 .staff_container {
@@ -99,12 +98,8 @@
     gap: 15px;
     border-radius: 4px;
     padding: 20px;
-    width: 100%; /* Ensure the container takes full width */
-    max-width: 100%; /* Prevent the container from expanding beyond the viewport */
-    overflow-x: auto; /* Ensure the container allows horizontal scrolling if needed */
+    width: 50%;
 }
-
-/* Apply similar constraints to other necessary classes if needed */
 
 
 .staff_inner{

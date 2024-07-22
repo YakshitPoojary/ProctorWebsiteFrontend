@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import React from "react";
 import ResultTable from "./resultTable/ResultTable"; 
 import { useParams } from 'react-router-dom';
-const axios = require('axios');;
+import axios from 'axios';;
 
 const StudentSummmary = () => {
     const [year, setYear] = useState(null);
@@ -38,7 +38,6 @@ const StudentSummmary = () => {
         const [selectedYear, selectedSession] = selectedSem.split(' ');
         setYear(selectedYear);
         setSession(selectedSession);
-        console.log(selectedSem, year, session);
     }, [selectedSem, year, session, roll_number, storedUserInfo.rollNumber]);
 
     return (

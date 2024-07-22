@@ -3,7 +3,7 @@ import '../SubAdmin.css'
 import Button from "../../components/Button/Button.jsx";
 import { useState } from 'react';
 import CourseTable from './CourseTable.jsx';
-const axios = require('axios');
+import axios from 'axios';
 
 const AddCourse = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -29,10 +29,6 @@ const AddCourse = () => {
                 headers: {
                 'Content-Type': 'multipart/form-data'
                 }
-            })
-            .then(response => {
-                console.log('Excel data uploaded successfully: ', response.data);
-                window.location.reload();
             })
             .catch(error => {
                 console.error('Error uploading Excel data', error);

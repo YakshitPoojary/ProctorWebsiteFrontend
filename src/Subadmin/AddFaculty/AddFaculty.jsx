@@ -3,7 +3,7 @@ import Button from "../../components/Button/Button.jsx";
 import { useState } from 'react';
 import '../SubAdmin.css'
 import FacultyTable from './FacultyTable.jsx';
-const axios = require('axios');
+import axios from 'axios';
 
 const AddFaculty = () => {
     const [selectedFile, setSelectedFile] = useState(null);

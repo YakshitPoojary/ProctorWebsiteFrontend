@@ -15,7 +15,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import Button from '@mui/material/Button';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -39,7 +39,6 @@ const ViewStudents = ({ current_year }) => {
   const [editRowId, setEditRowId] = useState(null);
   const [editRowData, setEditRowData] = useState(null);
   const storedUserInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-  console.log('current year: ', current_year);
 
   const handleOpen = (student) => {
     setSelectedStudent(student);
@@ -100,8 +99,7 @@ const ViewStudents = ({ current_year }) => {
 
       await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}subadmin/student/edit`, formData)
         .then(response => {
-          console.log(response.data);
-          // window.location.reload();
+          window.location.reload();
         })
         .catch(error => {
           alert(error.response.data.error);
@@ -111,7 +109,6 @@ const ViewStudents = ({ current_year }) => {
       setRows((prevRows) => prevRows.map((row) => (row.id === id ? editRowData : row)));
       setEditRowId(null);
       setEditRowData(null);
-      console.log('Student updated successfully.');
     } catch (error) {
       console.error('Error updating student:', error);
       setEditRowId(null);
@@ -334,7 +331,7 @@ const ViewStudents = ({ current_year }) => {
 
   return (
     <div>
-      <Box sx={{ height: 'auto', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box sx={{ height: 'auto', maxWidth: '95%' ,display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <DataGrid
           rows={rows}
           columns={columns}

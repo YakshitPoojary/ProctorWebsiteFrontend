@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button.jsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -120,7 +120,6 @@ const StaffTable = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}staff/list/${storedUserInfo.branch}`);
-        console.log("Response: ", response.data);
 
         const formattedRows = response.data.map((entry) => {
           const { staff_name, staff_abbreviation, staff_email, dept, experience, post, mobile_number } = entry;
@@ -365,7 +364,7 @@ const StaffTable = () => {
 
   return (
     <div>
-      <Box sx={{ height: 'auto', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box sx={{ height: 'auto', maxWidth:'95%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <DataGrid
           rows={rows}
           columns={columns}

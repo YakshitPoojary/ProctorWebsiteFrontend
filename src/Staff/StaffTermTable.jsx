@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Edit from '@mui/icons-material/Edit';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-const axios = require('axios');
+import axios from 'axios';
 
 let idCounter = 1;
 const StaffTermTable = () => {

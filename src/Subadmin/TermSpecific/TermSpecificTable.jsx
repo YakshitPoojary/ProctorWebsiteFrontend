@@ -7,7 +7,7 @@ import Edit from '@mui/icons-material/Edit';
 // import Delete from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-const axios = require('axios');
+import axios from 'axios';
 
 let idCounter = 1;
 const Termtable = () => {
@@ -27,10 +27,6 @@ const Termtable = () => {
                 <Edit />
               </IconButton>
             </Link>
-
-            {/* <IconButton onClick={() => handleDelete(params.row.year, params.row.session)}>
-              <Delete />
-            </IconButton> */}
           </div>
         ),
       },
@@ -78,15 +74,6 @@ const Termtable = () => {
     fetchUserData();
   }, []);
 
-  // const handleDelete = async (year, session) => {
-  //   try {
-  //     await axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}academicyear/${year}/${session}/delete/`);
-  //     setRows((prevRows) => prevRows.filter((row) => !(row.year === year && row.session === session)));
-  //     console.log('Term deleted successfully.');
-  //   } catch (error) {
-  //     console.error('Error deleting term:', error);
-  //   }
-  // };
 
   return (
     <Box sx={{ height: 'auto', margin: '0 4vw', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

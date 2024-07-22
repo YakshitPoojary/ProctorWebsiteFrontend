@@ -10,7 +10,6 @@ const Navbar = ({ role }) => {
   const storedUserInfo = JSON.parse(sessionStorage.getItem('userInfo'));
   
   useEffect(() => {
-    console.log('userInfo inside navbar: ', storedUserInfo);
     if (storedUserInfo) {
       setIsLoggedIn(true);
     } else {

@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-const axios = require('axios');
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -32,14 +32,12 @@ const AchievementsList = () => {
   const [rejectionReason, setRejectionReason] = useState('');
   const [achievementIdToReject, setAchievementIdToReject] = useState(null);
   const [reasonError, setReasonError] = useState('');
-  const BASE_URL = "http://127.0.0.1:8000";
   const storedUserInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 
   useEffect(() => {
     const fetchUserAchievement = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/studentachievement/unapproved/${storedUserInfo.abbr}/`);
-        console.log(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}studentachievement/unapproved/${storedUserInfo.abbr}/`);
         const formattedRows = response.data.map((entry) => {
           const { id, roll_number, activity_type, activity_members, group_members, start_date, end_date, title, description, upload_file } = entry;
           return createData(id, roll_number, activity_type, activity_members, group_members, start_date, end_date, title, description, upload_file);
@@ -62,7 +60,7 @@ const AchievementsList = () => {
 
   const handleDownload = (filePath) => {
     const link = document.createElement('a');
-    link.href = `${BASE_URL}${filePath}`;
+    link.href = `${process.env.REACT_APP_BACKEND_API_URL}${filePath}`;
     link.download = filePath.split('/').pop();
     document.body.appendChild(link);
     link.click();
@@ -124,7 +122,7 @@ const AchievementsList = () => {
 
   const handleApproval = async (achievementId) => {
     try {
-      await axios.post(`${BASE_URL}/studentachievement/approve/${achievementId}/`);
+      await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}studentachievement/approve/${achievementId}/`);
 
       setRows((prevRows) =>
         prevRows.filter((row) => row.id !== achievementId)
@@ -146,7 +144,7 @@ const AchievementsList = () => {
       return;
     }
     try {
-      await axios.post(`${BASE_URL}/studentachievement/reject/${achievementIdToReject}/`, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}studentachievement/reject/${achievementIdToReject}/`, {
         reason: rejectionReason,
         sender: storedUserInfo.email,
       });
@@ -163,7 +161,7 @@ const AchievementsList = () => {
 
   return (
     <div>
-      <Box sx={{ height: 'auto', margin: 'auto', maxWidth:'1400px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box sx={{ height: 'auto', margin: 'auto', maxWidth:'95%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <DataGrid
           rows={rows}
           columns={columns}
