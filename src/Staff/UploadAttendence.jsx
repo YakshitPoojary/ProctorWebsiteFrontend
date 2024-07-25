@@ -48,6 +48,10 @@ const UploadAttendance = () => {
           'Content-Type': 'multipart/form-data',
         },
       })
+      .then(response => {
+        console.log('File uploaded successfully');
+        window.location.reload();
+      })
         .catch(error => {
           console.error('Error uploading CSV file', error);
         });
