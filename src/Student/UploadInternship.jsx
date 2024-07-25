@@ -58,7 +58,7 @@ const UploadInternship = () => {
     formData.append("proctor", storedUserInfo.procAbbr);
 
     try {
-      await axios.post("http://localhost:8000/studentinternship/", formData, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}studentinternship/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
