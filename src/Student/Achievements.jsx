@@ -43,7 +43,9 @@ const AchievementsList = () => {
         // Update student name state
         setStudentName(student_name);
 
-        const formattedRows = achievements.map((entry) => {
+        const filteredAchievements = achievements.filter(entry => entry.approved === '1');
+
+        const formattedRows = filteredAchievements.map((entry) => {
           const { id, roll_number, activity_type, activity_members, group_members, start_date, end_date, title, description, upload_file } = entry;
           return createData(id, roll_number, activity_type, activity_members, group_members, start_date, end_date, title, description, upload_file);
         });

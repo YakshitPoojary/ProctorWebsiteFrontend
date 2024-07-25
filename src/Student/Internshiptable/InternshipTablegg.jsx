@@ -38,8 +38,9 @@ const InternshipTable = () => {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}studentinternship/list/${rollNumber}/`);
         const { student_name, internship } = response.data;
         setStudentName(student_name);
+        const filteredInternships = internship.filter(entry => entry.approved === '1');
 
-        const formattedRows = internship.map((entry) => {
+        const formattedRows = filteredInternships.map((entry) => {
           const { id, company_name, start_date, end_date, job_role, hours } = entry;
           return createData(id, company_name, start_date, end_date, job_role, hours);
         });
