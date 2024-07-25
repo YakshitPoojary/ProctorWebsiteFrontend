@@ -171,7 +171,7 @@ const InternshipTable = () => {
               <div>
                 <button onClick={exportToPDF}>Export to PDF</button>
                 <Typography>
-                  Total Hours Required: {Math.max(0, 560 - totalHours)}
+                  Total Hours Required: {Math.max(0, 400 - totalHours)}
                 </Typography>
                 <Typography>
                   Current Hours: {totalHours}
